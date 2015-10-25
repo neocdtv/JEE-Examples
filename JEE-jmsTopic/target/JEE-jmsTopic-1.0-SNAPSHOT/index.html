@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JMS Topic</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>JMS Topic</h2>
+        <h3>Scenarios</h3>
+        <ul>
+            <li>
+                <p>
+                    Automatic - Message Driven Beans
+                    <br>
+                    use 'produce message(s)', messages will be consumed automatically by MDBs
+                </p>
+            </li>
+            <li>
+                <p>
+                    Programmatic
+                    <br>
+                    use 'consume programmatic message(s)' to receive messages (click multiple times to get more consumers)
+                    use 'produce message(s)'<br>
+                </p>
+                <p>
+                    disable the annotation on TopicMessageDrivenBeanFirst and TopicMessageDrivenBeanSecond, 
+                    build and deploy
+                </p>
+            </li>
+        </ul>
+
+        <a href="/JEE-jmsTopic/rs/topic/consume-programmatic">consume programmatic message(s)</a>
+        <br>
+        <br>
+        <a href="/JEE-jmsTopic/rs/topic/produce">produce message(s)</a>
+    </body>
+</html>

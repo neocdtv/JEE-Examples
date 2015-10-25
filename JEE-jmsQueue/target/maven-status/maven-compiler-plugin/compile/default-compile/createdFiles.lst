@@ -1,0 +1,5 @@
+io/neocdtv/jmsqueue/QueueMessageDrivenBean.class
+io/neocdtv/jmsqueue/QueueMessageProgrammaticConsumer.class
+io/neocdtv/jmsqueue/Rest.class
+org/netbeans/rest/application/config/ApplicationConfig.class
+io/neocdtv/jmsqueue/QueueMessageSender.class
