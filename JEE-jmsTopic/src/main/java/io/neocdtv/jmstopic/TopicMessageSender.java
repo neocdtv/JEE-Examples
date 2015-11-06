@@ -10,8 +10,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
+import javax.jms.JMSContext;
 import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
@@ -26,6 +28,9 @@ public class TopicMessageSender {
     private ConnectionFactory connectionFactory;
     @Resource(mappedName = "jms/myMessageTopic")
     private Topic topic;
+    
+    @Inject
+    JMSContext context;
 
     public void produceMessages() {
         MessageProducer messageProducer;

@@ -2,7 +2,4 @@
 <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        bean-discovery-mode="all">
-    <interceptors>
-        <class>io.neocdtv.jerseyfilterclient.PerormanceInterceptor</class>
-    </interceptors>
 </beans>

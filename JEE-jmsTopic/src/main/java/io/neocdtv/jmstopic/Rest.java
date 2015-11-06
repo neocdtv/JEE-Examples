@@ -7,6 +7,10 @@ package io.neocdtv.jmstopic;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.jms.JMSException;
+import javax.jms.Queue;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
@@ -35,5 +39,13 @@ public class Rest {
     @Path("consume-programmatic")
     public void consumeMessages() {
         topicMessageProgrammaticConsumer.consumeMessages();
+    }
+    
+    @GET
+    @Path("dead-messages")
+    public String listDeadMessageQueue() throws NamingException, JMSException {
+        InitialContext ctx = new InitialContext();
+        ctx.lookup("jms/mq.sys.dmq");
+        return "bla";
     }
 }

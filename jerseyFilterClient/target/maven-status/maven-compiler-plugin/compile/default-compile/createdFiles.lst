@@ -1,9 +1,6 @@
 io/neocdtv/jerseyfilterclient/Server.class
+io/neocdtv/jerseyfilterclient/ClientFactory.class
 io/neocdtv/jerseyfilterclient/EsiService.class
-io/neocdtv/jerseyfilterclient/PerformanceData.class
-io/neocdtv/jerseyfilterclient/ClientFilter.class
-io/neocdtv/jerseyfilterclient/PerormanceInterceptor.class
-io/neocdtv/jerseyfilterclient/ConditionProvider.class
-io/neocdtv/jerseyfilterclient/ExternalCall.class
-io/neocdtv/jerseyfilterclient/PerformanceLog.class
+io/neocdtv/jerseyfilterclient/ClientTrafficFilter.class
+io/neocdtv/jerseyfilterclient/ClientObjectMapper.class
 org/netbeans/rest/application/config/ApplicationConfig.class

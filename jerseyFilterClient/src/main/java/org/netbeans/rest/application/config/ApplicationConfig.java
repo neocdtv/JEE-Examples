@@ -30,7 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(io.neocdtv.jerseyfilterclient.Server.class);
-        //resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
+        resources.add(io.neocdtv.jerseyfilterclient.ServerTrafficFilter.class);
         resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
     }
     

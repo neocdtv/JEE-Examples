@@ -30,6 +30,7 @@ public class TopicMessageProgrammaticConsumer {
 
     public void consumeMessages() {
         Connection connection;
+        
         MessageConsumer messageConsumer;
         TextMessage textMessage;
         boolean goodByeReceived = false;
@@ -38,6 +39,7 @@ public class TopicMessageProgrammaticConsumer {
             Session session = connection.createSession(false,
                     Session.AUTO_ACKNOWLEDGE);
             messageConsumer = session.createConsumer(topic);
+            
             connection.start();
             while (!goodByeReceived) {
                 System.out.println("Waiting for messages...");

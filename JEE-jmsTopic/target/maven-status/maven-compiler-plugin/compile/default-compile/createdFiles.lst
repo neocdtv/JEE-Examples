@@ -1,6 +1,6 @@
 io/neocdtv/jmstopic/TopicMessageDrivenBeanFirst.class
 io/neocdtv/jmstopic/Rest.class
-io/neocdtv/jmstopic/TopicMessageSender.class
 io/neocdtv/jmstopic/TopicMessageDrivenBeanSecond.class
+io/neocdtv/jmstopic/TopicMessageSender.class
 org/netbeans/rest/application/config/ApplicationConfig.class
 io/neocdtv/jmstopic/TopicMessageProgrammaticConsumer.class
