@@ -24,9 +24,9 @@ import javax.jms.Topic;
 public class TopicMessageSender {
     private static final Logger LOGGER = Logger.getLogger(TopicMessageSender.class.getName());
 
-    @Resource(mappedName = "jms/myConnectionFactory")
+    @Resource(lookup = "jms/myConnectionFactory")
     private ConnectionFactory connectionFactory;
-    @Resource(mappedName = "jms/myMessageTopic")
+    @Resource(lookup = "jms/myMessageTopic")
     private Topic topic;
     
     @Inject

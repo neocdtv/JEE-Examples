@@ -22,9 +22,9 @@ import javax.jms.TextMessage;
 public class QueueMessageSender {
     private static final Logger LOGGER = Logger.getLogger(QueueMessageSender.class.getName());
 
-    @Resource(mappedName = "jms/myConnectionFactory")
+    @Resource(lookup = "jms/myConnectionFactory")
     private ConnectionFactory connectionFactory;
-    @Resource(mappedName = "jms/myMessageQueue")
+    @Resource(lookup = "jms/myMessageQueue")
     private Queue queue;
 
     public void produceMessages() {

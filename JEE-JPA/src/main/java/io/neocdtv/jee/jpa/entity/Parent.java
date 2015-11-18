@@ -80,7 +80,7 @@ public class Parent extends AbstractEntity {
 
     public void addChild(final Child childBE) {
         getChildren().add(childBE);
-        if (childBE.getParentBE() != this) {
+        if (childBE.getParent() != this) {
             childBE.setParentBE(this);
         }
     }

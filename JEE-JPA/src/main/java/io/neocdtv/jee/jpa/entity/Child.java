@@ -75,7 +75,7 @@ public class Child extends AbstractEntity implements Serializable {
         this.stringValue = stringValue;
     }
 
-    public Parent getParentBE() {
+    public Parent getParent() {
         return parent;
     }
 

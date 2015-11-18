@@ -23,9 +23,9 @@ public class QueueMessageProgrammaticConsumer {
 
     private static final Logger LOGGER = Logger.getLogger(QueueMessageProgrammaticConsumer.class.getName());
 
-    @Resource(mappedName = "jms/myConnectionFactory")
+    @Resource(lookup = "jms/myConnectionFactory")
     private ConnectionFactory connectionFactory;
-    @Resource(mappedName = "jms/myMessageQueue")
+    @Resource(lookup = "jms/myMessageQueue")
     private Queue queue;
 
     public void consumeMessages() {

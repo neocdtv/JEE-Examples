@@ -23,9 +23,9 @@ public class TopicMessageProgrammaticConsumer {
 
     private static final Logger LOGGER = Logger.getLogger(TopicMessageProgrammaticConsumer.class.getName());
 
-    @Resource(mappedName = "jms/myConnectionFactory")
+    @Resource(lookup = "jms/myConnectionFactory")
     private ConnectionFactory connectionFactory;
-    @Resource(mappedName = "jms/myMessageTopic")
+    @Resource(lookup = "jms/myMessageTopic")
     private Topic topic;
 
     public void consumeMessages() {
