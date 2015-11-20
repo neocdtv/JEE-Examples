@@ -1,0 +1,3 @@
+org/netbeans/rest/application/config/ServerApplicationConfig.class
+io/neocdtv/jarxrs/server/Server.class
+io/neocdtv/jarxrs/server/ServerInterceptor2.class

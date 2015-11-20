@@ -1,1 +1,11 @@
 /JEE-JPA/JEE-JPA/target/
+/JEE-jaxrsDataModel/target/
+/JEE-jaxrs-cross-cutting-client/target/
+/JEE-jaxrs-client-cross-cutting/target/
+/JEE-jaxrs-client/target/
+/data-model/target/
+/JEE-jaxrs-server/target/
+/JEE-jms-queue/target/
+/JEE-jms-topic/target/
+/JEE-jpa/target/
+/JEE-jaxrs-server-cross-cutting/target/

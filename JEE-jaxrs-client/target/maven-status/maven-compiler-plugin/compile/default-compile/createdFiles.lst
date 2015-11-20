@@ -1,0 +1,4 @@
+io/neocdtv/server/Server.class
+io/neocdtv/client/ClientFactory.class
+io/neocdtv/client/ClientService.class
+org/netbeans/rest/application/config/ServerApplicationConfig.class

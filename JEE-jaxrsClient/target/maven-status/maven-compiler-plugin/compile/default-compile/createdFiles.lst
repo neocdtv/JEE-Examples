@@ -1,8 +1,0 @@
-io/neocdtv/jerseyfilterclient/Server.class
-io/neocdtv/jerseyfilterclient/EsiService.class
-io/neocdtv/jerseyfilterclient/ClientTrafficFilter.class
-io/neocdtv/jerseyfilterclient/ClientObjectMapper.class
-io/neocdtv/jerseyfilterclient/ServerTrafficFilter.class
-io/neocdtv/jerseyfilterclient/ServerObjectMapper.class
-io/neocdtv/jerseyfilterclient/ClientFactory.class
-org/netbeans/rest/application/config/ApplicationConfig.class
