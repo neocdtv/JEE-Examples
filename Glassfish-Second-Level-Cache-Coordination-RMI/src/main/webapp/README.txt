@@ -1,2 +1,0 @@
-asadmin create-jdbc-connection-pool --datasourceclassname oracle.jdbc.pool.OracleDataSource --restype javax.sql.DataSource --property url="jdbc\:oracle\:thin\:@localhost\:1521\:XE":user=cacheCordination:password=123 cacheCordinationPool
-asadmin create-jdbc-resource --connectionpoolid=cacheCordinationPool jdbc/cacheCordination

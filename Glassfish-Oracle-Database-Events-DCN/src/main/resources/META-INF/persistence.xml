@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="cachedCoordinationUnit" transaction-type="JTA">
+        <jta-data-source>jdbc/cachedCoordinationResource</jta-data-source>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <shared-cache-mode>ALL</shared-cache-mode>
+        <properties>
+            <!--
+            working cache coordination configuration, but eclipselink.cache.coordination.rmi.url must be configured on every
+            cluster instance separately in cluster-config->systemproperties:
+            {default value: rmi://localhost:8686/, instance1: rmi://t430:28686/, instance2: rmi://dev2:28686/}
+            -->
+            <property name="eclipselink.cache.coordination.protocol" value="rmi" />
+            <property name="eclipselink.cache.coordination.naming-service" value="rmi" />
+            <property name="eclipselink.cache.coordination.channel" value="myCacheChannel" />
+            <!--
+            <property name="eclipselink.cache.coordination.rmi.multicast-group" value="228.9.3.1" />
+            <property name="eclipselink.cache.coordination.rmi.multicast-group.port" value="2048" />
+            <property name="eclipselink.cache.coordination.rmi.url" value="rmi://t430:8686/" />
+            -->
+            <!--
+            <property name="eclipselink.session.customizer" value="com.mycompany.cachecoordination.CacheCoordinationSessionCustomizer"/>
+            -->
+            <property name="eclipselink.logging.session" value="true"/>
+            <property name="eclipselink.logging.thread" value="true"/>
+            <property name="eclipselink.logging.exceptions" value="true"/>
+            <property name="eclipselink.logging.level" value="ALL" />
+
+            <property name="eclipselink.cache.shared.default" value="true"/>
+            <property name="eclipselink.cache.type.default" value="Full"/>
+            <property name="eclipselink.cache.size.default" value="100"/>
+            <property name="eclipselink.cache.shared" value="true"/>
+            <property name="eclipselink.target-database" value="Oracle"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
