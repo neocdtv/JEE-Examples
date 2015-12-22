@@ -1,6 +1,9 @@
-/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/com/mycompany/jpaplay/entity/AbstractEntity.java
-/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/CustomerOraclePlattform.java
-/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/com/mycompany/jpaplay/entity/Child.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/eclipselink/OraclePlattformFixedTerminationStatement.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/JacksonProvider.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/entity/Child.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/eclipselink/EclipseLinkSessionCustomizer.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/org/netbeans/rest/application/config/ApplicationConfig.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/ServiceRS.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/entity/AbstractEntity.java
 /home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/Service.java
-/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/EclipseLinkSessionCustomizer.java
-/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/com/mycompany/jpaplay/entity/Parent.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/entity/Parent.java

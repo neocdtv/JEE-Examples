@@ -1,3 +1,6 @@
-org/netbeans/rest/application/config/ServerApplicationConfig.class
+io/neocdtv/jarxrs/server/ServerObjectMapper.class
+io/neocdtv/jarxrs/server/ServerExceptionMapper.class
 io/neocdtv/jarxrs/server/Server.class
-io/neocdtv/jarxrs/server/ServerInterceptor2.class
+io/neocdtv/jarxrs/server/ServerInterceptor.class
+io/neocdtv/jarxrs/server/ServerTrafficFilter.class
+org/netbeans/rest/application/config/ServerApplicationConfig.class

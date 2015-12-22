@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.neocdtv.jaxrs.client.crosscutting;
+package io.neocdtv.jee.jaxrs.client.standalone;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,7 +18,7 @@ public class ClientObjectMapper {
     static {
     // use this block to customize the object mapper
     }
-
+    
     private ClientObjectMapper() {
         // prevent instance
     }

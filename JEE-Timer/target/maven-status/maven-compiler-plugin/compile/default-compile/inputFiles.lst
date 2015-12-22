@@ -1,3 +1,2 @@
-/home/xix/Projects/JEE-Timer/src/main/java/io/neocdtv/timer/ProgrammaticTimer.java
-/home/xix/Projects/JEE-Timer/src/main/java/io/neocdtv/timer/SingletonTimer.java
-/home/xix/Projects/JEE-Timer/src/main/java/io/neocdtv/timer/EJBTimer.java
+/home/xix/Projects/JEE-Examples/JEE-Timer/src/main/java/io/neocdtv/timer/EJBTimer.java
+/home/xix/Projects/JEE-Examples/JEE-Timer/src/main/java/io/neocdtv/timer/ProgrammaticTimer.java

@@ -6,8 +6,8 @@
 package org.netbeans.rest.application.config;
 
 import io.neocdtv.jarxrs.server.Server;
-import io.neocdtv.jaxrs.server.crosscutting.ServerInterceptor;
-import io.neocdtv.jaxrs.server.crosscutting.ServerTrafficFilter;
+import io.neocdtv.jarxrs.server.ServerInterceptor;
+import io.neocdtv.jarxrs.server.ServerTrafficFilter;
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
@@ -32,9 +32,7 @@ public class ServerApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(Server.class);
-        resources.add(ServerTrafficFilter.class);
-        resources.add(ServerInterceptor.class);
+        resources.add(io.neocdtv.jarxrs.server.Server.class);
         resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
     }
     

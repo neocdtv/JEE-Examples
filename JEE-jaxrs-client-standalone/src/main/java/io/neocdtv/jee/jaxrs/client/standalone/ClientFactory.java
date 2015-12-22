@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.neocdtv.client;
+package io.neocdtv.jee.jaxrs.client.standalone;
 
-import io.neocdtv.jaxrs.client.crosscutting.ClientInterceptor;
-import io.neocdtv.jaxrs.client.crosscutting.ClientTrafficFilter;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
@@ -21,7 +19,7 @@ public class ClientFactory {
         INSTANCE.register(new ClientTrafficFilter());
         INSTANCE.register(new ClientInterceptor());
     }
-
+    
     private ClientFactory() {
         // prevent instance
     }

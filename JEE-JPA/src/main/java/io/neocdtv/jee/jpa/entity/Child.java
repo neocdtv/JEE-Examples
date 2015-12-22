@@ -5,11 +5,11 @@
  */
 package io.neocdtv.jee.jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import static io.neocdtv.jee.jpa.entity.AbstractEntity.FIELD_NAME_VERSION;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +31,6 @@ public class Child extends AbstractEntity implements Serializable {
     public final static String ENTITY_NAME = "CHILD";
     private final static String ENTITY_GEN_NAME = ENTITY_NAME + "_GEN";
     private final static String ENTITY_SEQ_NAME = ENTITY_NAME + "_SEQ";
-    private final static String FIELD_NAME_STRING_VALUE = "STRING_VALUE";
     
     @Id
     @Column(name = AbstractEntity.FIELD_NAME_ID)
@@ -43,13 +42,22 @@ public class Child extends AbstractEntity implements Serializable {
     @Column(name = FIELD_NAME_VERSION)
     private Long version;
     
-    @Column(name = FIELD_NAME_STRING_VALUE)
-    private String stringValue;
+    @Column
+    private String attributeOne;
+
+    @Column
+    private String attributeTwo;
+
+    @Column
+    private String attributeThree;
+
+    @Column
+    private String attributeFour;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name = "PARENT_ID")
     private Parent parent; 
-    
     
     public Long getId() {
         return id;
@@ -67,12 +75,36 @@ public class Child extends AbstractEntity implements Serializable {
         this.version = version;
     }
 
-    public String getStringValue() {
-        return stringValue;
+    public String getAttributeOne() {
+        return attributeOne;
     }
 
-    public void setStringValue(String stringValue) {
-        this.stringValue = stringValue;
+    public void setAttributeOne(String attributeOne) {
+        this.attributeOne = attributeOne;
+    }
+
+    public String getAttributeTwo() {
+        return attributeTwo;
+    }
+
+    public void setAttributeTwo(String attributeTwo) {
+        this.attributeTwo = attributeTwo;
+    }
+
+    public String getAttributeThree() {
+        return attributeThree;
+    }
+
+    public void setAttributeThree(String attributeThree) {
+        this.attributeThree = attributeThree;
+    }
+
+    public String getAttributeFour() {
+        return attributeFour;
+    }
+
+    public void setAttributeFour(String attributeFour) {
+        this.attributeFour = attributeFour;
     }
 
     public Parent getParent() {

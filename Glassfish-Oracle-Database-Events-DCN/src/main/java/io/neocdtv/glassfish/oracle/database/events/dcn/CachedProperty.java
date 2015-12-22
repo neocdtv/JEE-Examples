@@ -2,13 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.neocdtv.jee.cachecoordination;
+package io.neocdtv.glassfish.oracle.database.events.dcn;
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -18,12 +17,7 @@ import javax.persistence.Version;
  */
 @Entity
 @Table(name = "CACHED_PROPERTY")
-@NamedQuery(name = CachedProperty.FIND_BY_ANOTHER_VALUE,
-        query = "select c from CachedProperty c where c.anotherValue = :" + CachedProperty.PARAM_ANOTHER_VALUE)
 public class CachedProperty implements Serializable {
-
-    public static final String FIND_BY_ANOTHER_VALUE = "CachedProperty.FIND_BY_VALUE";
-    public static final String PARAM_ANOTHER_VALUE = "anotherValue";
 
     @Id
     @Column

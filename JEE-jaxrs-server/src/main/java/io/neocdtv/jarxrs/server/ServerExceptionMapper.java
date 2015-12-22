@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.neocdtv.jaxrs.server.crosscutting;
+package io.neocdtv.jarxrs.server;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
