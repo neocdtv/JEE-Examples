@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.neocdtv.jee.jpa.entity;
+package io.neocdtv.jee.jpa.entity.onetomany.uni;
 
+import io.neocdtv.jee.jpa.entity.*;
 import static io.neocdtv.jee.jpa.entity.AbstractEntity.FIELD_NAME_VERSION;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,18 +29,19 @@ import javax.persistence.Version;
  */
 
 @Entity
-@Table(name = Parent.ENTITY_NAME)
+@Table(name = ParentUniOne.ENTITY_NAME)
 @NamedQueries({
-    @NamedQuery(name = Parent.QUERY_NAME_READ_ALL,
-            query = "SELECT e FROM Parent e")
+    @NamedQuery(name = ParentUniOne.QUERY_NAME_READ_ALL,
+            query = "SELECT e FROM ParentUniOne e")
 })
-public class Parent extends AbstractEntity {
+public class ParentUniOne extends AbstractEntity {
     
-    public final static String ENTITY_NAME = "PARENT";
-    public final static String QUERY_NAME_READ_ALL = "QUERY_NAME_READ_ALL";
+    public final static String ENTITY_NAME = "PARENT_UNI_ONE";
+    public final static String QUERY_NAME_READ_ALL = "PARENT_UNI_ONE_QUERY_NAME_READ_ALL";
     private final static String ENTITY_GEN_NAME = ENTITY_NAME + "_GEN";
     private final static String ENTITY_SEQ_NAME = ENTITY_NAME + "_SEQ";
-
+    private final static String FIELD_NAME_ATTRIBUTE_ONE = "ATTRIBUTE_ONE";
+    
     @Id
     @Column(name = AbstractEntity.FIELD_NAME_ID)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = ENTITY_GEN_NAME)
@@ -50,7 +52,7 @@ public class Parent extends AbstractEntity {
     @Column(name = FIELD_NAME_VERSION)
     private Long version;
 
-    @Column
+    @Column(name = FIELD_NAME_ATTRIBUTE_ONE)
     private String attributeOne;
     
     @Column
@@ -63,8 +65,8 @@ public class Parent extends AbstractEntity {
     private Integer attributeFour;
     
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PARENT_ID", nullable = false)
-    private Set<Child> children;
+    @JoinColumn(name = "PARENT_ID", nullable = true)
+    private Set<ChildUniMany> children;
     
     public Long getId() {
         return id;
@@ -114,27 +116,14 @@ public class Parent extends AbstractEntity {
         this.attributeFour = attributeFour;
     }
 
-
-    
-    public Set<Child> getChildren() {
+    public Set<ChildUniMany> getChildren() {
         if (children == null) {
             children = new HashSet<>();
         }
         return children;
     }
 
-    public void setChildren(Set<Child> children) {
-        this.children = new HashSet<>();
-        for (Child child : children) {
-            addChild(child);
-        }
+    public void addChild(final ChildUniMany childUniMany) {
+        getChildren().add(childUniMany);
     }
-
-    public void addChild(final Child child) {
-        getChildren().add(child);
-        if (child.getParent() != this) {
-            child.setParentBE(this);
-        }
-    }
-    
 }

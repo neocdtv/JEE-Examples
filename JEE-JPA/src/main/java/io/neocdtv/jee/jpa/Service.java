@@ -6,7 +6,7 @@
 package io.neocdtv.jee.jpa;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import io.neocdtv.jee.jpa.entity.Parent;
+import io.neocdtv.jee.jpa.entity.onetomany.bi.ParentBiOne;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
@@ -28,32 +28,32 @@ public class Service {
     @PersistenceContext(unitName = "jpaPlay")
     private EntityManager em;
 
-    public Parent create(final Parent parent) {
+    public ParentBiOne create(final ParentBiOne parent) {
         em.persist(parent);
         return parent;
     }
 
-    public Parent update(final Parent parent) {
+    public ParentBiOne update(final ParentBiOne parent) {
         em.merge(parent);
         return parent;
     }
     
-    public Parent readPartial(final Long id, final EntityGraph<Parent> entityGraph) throws JsonProcessingException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, ClassNotFoundException, InstantiationException {
+    public ParentBiOne readPartial(final Long id, final EntityGraph<ParentBiOne> entityGraph) throws JsonProcessingException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, ClassNotFoundException, InstantiationException {
         Map<String, Object> hints = new HashMap<>();
         hints.put(QueryHints.JPA_LOAD_GRAPH, entityGraph);
-        return em.find(Parent.class, id, hints);
+        return em.find(ParentBiOne.class, id, hints);
     }
 
-    public Parent updatePartial(final Parent parentParam, final String[] nodes) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    public ParentBiOne updatePartial(final ParentBiOne parentParam, final String[] nodes) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
         return null;
     }
 
-    public Parent read(final Long id) {
-        return em.find(Parent.class, id);
+    public ParentBiOne read(final Long id) {
+        return em.find(ParentBiOne.class, id);
     }
 
-    public List<Parent> read() {
-        final TypedQuery<Parent> createNamedQuery = em.createNamedQuery(Parent.QUERY_NAME_READ_ALL, Parent.class);
+    public List<ParentBiOne> read() {
+        final TypedQuery<ParentBiOne> createNamedQuery = em.createNamedQuery(ParentBiOne.QUERY_NAME_READ_ALL, ParentBiOne.class);
         return createNamedQuery.getResultList();
     }
 }

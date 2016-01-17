@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.neocdtv.jee.jpa.entity;
+package io.neocdtv.jee.jpa.entity.onetomany.bi;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.neocdtv.jee.jpa.entity.AbstractEntity;
 import static io.neocdtv.jee.jpa.entity.AbstractEntity.FIELD_NAME_VERSION;
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -13,7 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -25,10 +25,10 @@ import javax.persistence.Version;
  */
 
 @Entity
-@Table(name = Child.ENTITY_NAME)
-public class Child extends AbstractEntity implements Serializable {
+@Table(name = ChildBiMany.ENTITY_NAME)
+public class ChildBiMany extends AbstractEntity implements Serializable {
     
-    public final static String ENTITY_NAME = "CHILD";
+    public final static String ENTITY_NAME = "CHILD_BI_MANY";
     private final static String ENTITY_GEN_NAME = ENTITY_NAME + "_GEN";
     private final static String ENTITY_SEQ_NAME = ENTITY_NAME + "_SEQ";
     
@@ -56,8 +56,7 @@ public class Child extends AbstractEntity implements Serializable {
     
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "PARENT_ID")
-    private Parent parent; 
+    private ParentBiOne parent;
     
     public Long getId() {
         return id;
@@ -107,11 +106,15 @@ public class Child extends AbstractEntity implements Serializable {
         this.attributeFour = attributeFour;
     }
 
-    public Parent getParent() {
+    public ParentBiOne getParent() {
         return parent;
     }
 
-    public void setParentBE(Parent parentBE) {
+    /*
+     this method is required to set the correct back reference, 
+     if not set a constraint violation will occure
+     */
+    public void setParentBE(ParentBiOne parentBE) {
         this.parent = parentBE;
         if (!parentBE.getChildren().contains(this)) {
             parentBE.getChildren().add(this);

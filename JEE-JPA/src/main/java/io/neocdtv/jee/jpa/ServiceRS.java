@@ -6,15 +6,12 @@
 package io.neocdtv.jee.jpa;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.sun.enterprise.util.BeanUtils;
 import io.neocdtv.eclipselink.entitygraph.CopyPartialEntities;
 import io.neocdtv.eclipselink.entitygraph.PathsToEntityGraphConverter;
-import io.neocdtv.jee.jpa.entity.Parent;
+import io.neocdtv.jee.jpa.entity.onetomany.bi.ParentBiOne;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import java.util.Map;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityGraph;
@@ -49,14 +46,13 @@ public class ServiceRS {
     private EntityManager em;
 
     @POST
-    public Response create(final Parent parent) {
+    public Response create(final ParentBiOne parent) {
         service.create(parent);
         return Response.ok().build();
     }
 
     @PUT
-    public Response update(final Parent parent) {
-
+    public Response update(final ParentBiOne parent) {
         parent.setChildren(parent.getChildren());
         service.update(parent);
         return Response.ok().build();
@@ -64,15 +60,15 @@ public class ServiceRS {
 
     @PUT
     @Path("partial")
-    public Response updatePartial(final Parent parent) throws JsonProcessingException, IOException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        final Parent updatePartial = service.updatePartial(parent, null);
+    public Response updatePartial(final ParentBiOne parent) throws JsonProcessingException, IOException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+        final ParentBiOne updatePartial = service.updatePartial(parent, null);
         return Response.ok(updatePartial).build();
     }
 
     @GET
     @Path("{id}")
     public Response read(@PathParam("id") Long id) {
-        final Parent parent = service.read(id);
+        final ParentBiOne parent = service.read(id);
         return Response.ok(parent).build();
     }
 
@@ -80,17 +76,17 @@ public class ServiceRS {
     @Path("partial/{id}")
     public Response readPartial(@HeaderParam("partial") String partial, @PathParam("id") Long id) throws JsonProcessingException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, ClassNotFoundException, InstantiationException {
         final String[] paths = partial.split(",");       
-        final EntityGraph<Parent> entityGraph = new PathsToEntityGraphConverter().toGraph((EntityGraphImpl) em.createEntityGraph(Parent.class), paths);
+        final EntityGraph<ParentBiOne> entityGraph = new PathsToEntityGraphConverter().toGraph((EntityGraphImpl) em.createEntityGraph(ParentBiOne.class), paths);
         
-        final Parent parent = service.readPartial(id, entityGraph);       
-        final Parent newParent = new CopyPartialEntities().copy(parent, (EntityGraphImpl) entityGraph);
+        final ParentBiOne parent = service.readPartial(id, entityGraph);       
+        final ParentBiOne newParent = new CopyPartialEntities().copy(parent, (EntityGraphImpl) entityGraph);
         
         return Response.ok(newParent).build();
     }
 
     @GET
     public Response read() {
-        final List<Parent> parents = service.read();
+        final List<ParentBiOne> parents = service.read();
         return Response.ok(parents).build();
     }
 }

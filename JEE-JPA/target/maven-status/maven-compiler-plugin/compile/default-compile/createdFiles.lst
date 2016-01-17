@@ -5,7 +5,11 @@ io/neocdtv/jee/jpa/entity/Child_.class
 org/netbeans/rest/application/config/ApplicationConfig.class
 io/neocdtv/jee/jpa/ServiceRS.class
 io/neocdtv/jee/jpa/entity/Parent.class
+io/neocdtv/jee/jpa/entity/onetomany/ChildUniMany.class
+io/neocdtv/jee/jpa/entity/onetomany/ParentUniOne_.class
 io/neocdtv/jee/jpa/Service.class
+io/neocdtv/jee/jpa/entity/onetomany/ParentUniOne.class
 io/neocdtv/jee/jpa/eclipselink/OraclePlattformFixedTerminationStatement.class
 io/neocdtv/jee/jpa/entity/Child.class
 io/neocdtv/jee/jpa/eclipselink/EclipseLinkSessionCustomizer.class
+io/neocdtv/jee/jpa/entity/onetomany/ChildUniMany_.class

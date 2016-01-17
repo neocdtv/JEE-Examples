@@ -4,6 +4,8 @@
 /home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/eclipselink/EclipseLinkSessionCustomizer.java
 /home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/org/netbeans/rest/application/config/ApplicationConfig.java
 /home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/ServiceRS.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/entity/onetomany/ParentUniOne.java
 /home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/entity/AbstractEntity.java
 /home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/Service.java
+/home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/entity/onetomany/ChildUniMany.java
 /home/xix/Projects/JEE-Examples/JEE-JPA/src/main/java/io/neocdtv/jee/jpa/entity/Parent.java
