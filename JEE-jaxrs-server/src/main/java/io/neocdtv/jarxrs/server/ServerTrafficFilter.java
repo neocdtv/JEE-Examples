@@ -14,19 +14,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.ext.Provider;
 import org.glassfish.jersey.message.internal.ReaderWriter;
 
 /**
  *
  * @author xix
  */
-public class ServerTrafficFilter implements ContainerRequestFilter, ContainerResponseFilter {
 
+@ApplicationScoped
+@Provider
+public class ServerTrafficFilter implements ContainerRequestFilter, ContainerResponseFilter {
+    
     private static final String NOTIFICATION_PREFIX = "* ";
     private static final String REQUEST_PREFIX = "-> ";
     private static final String RESPONSE_PREFIX = "<- ";

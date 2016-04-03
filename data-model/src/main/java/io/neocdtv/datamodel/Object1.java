@@ -4,17 +4,33 @@
  * and open the template in the editor.
  */
 package io.neocdtv.datamodel;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author xix
  */
 public class Object1 {
+    @NotNull
     private String first;
+    @JsonProperty(required = true)
     private String second;
     private String second2;
+    @Pattern(regexp = "[0-9]{12}")
     private String second3;
+    @Size(min = 10, max = 12)
     private String second4;
+    @Min(1)
+    @Max(10)
+    private Integer hier;
+    @Size(min = 10, max = 12)
+    private List<String> liste;
     private String second5;
     private String second6;
     private String second7;
@@ -33,6 +49,22 @@ public class Object1 {
     private String second20;
     private Object2 object2;
 
+    public Integer getHier() {
+        return hier;
+    }
+
+    public void setHier(Integer hier) {
+        this.hier = hier;
+    }
+    
+    public List<String> getListe() {
+        return liste;
+    }
+
+    public void setListe(List<String> liste) {
+        this.liste = liste;
+    }
+    
     public String getFirst() {
         return first;
     }

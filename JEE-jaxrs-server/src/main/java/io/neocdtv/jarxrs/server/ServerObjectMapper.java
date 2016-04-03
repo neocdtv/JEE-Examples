@@ -5,21 +5,27 @@
  */
 package io.neocdtv.jarxrs.server;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+import javax.ws.rs.ext.MessageBodyReader;
+import javax.ws.rs.ext.MessageBodyWriter;
+import org.jboss.logging.Logger;
 
 /**
  *
  * @author xix
  */
+
 public class ServerObjectMapper {
+
+    private static final Logger LOGGER = Logger.getLogger(ServerObjectMapper.class.getName());
 
     public static final ObjectMapper INSTANCE = new ObjectMapper();
 
     static {
-    // use this block to customize the object mapper
-    }
-
-    private ServerObjectMapper() {
-        // prevent instance
+        INSTANCE.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+        INSTANCE.configure(SerializationFeature.INDENT_OUTPUT, true);
     }
 }

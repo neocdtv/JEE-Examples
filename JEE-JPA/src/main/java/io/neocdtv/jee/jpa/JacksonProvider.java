@@ -1,6 +1,8 @@
 package io.neocdtv.jee.jpa;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
@@ -18,6 +20,10 @@ public class JacksonProvider implements ContextResolver<ObjectMapper> {
     static {
         defaultObjectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         defaultObjectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+        /*
+        defaultObjectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
+        defaultObjectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+                */
     }
     
     public JacksonProvider() {

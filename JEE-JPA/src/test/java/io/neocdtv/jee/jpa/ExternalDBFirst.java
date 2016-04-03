@@ -7,6 +7,7 @@ package io.neocdtv.jee.jpa;
 
 import io.neocdtv.jee.jpa.entity.onetomany.uni.ChildUniMany;
 import io.neocdtv.jee.jpa.entity.onetomany.uni.ParentUniOne;
+import java.util.Iterator;
 import javax.persistence.EntityManager;
 import org.junit.Test;
 
@@ -24,6 +25,13 @@ public class ExternalDBFirst extends ExternalDBTest {
         final EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(parent);
+        entityManager.getTransaction().commit();
+        
+        entityManager.getTransaction().begin();
+        final ParentUniOne perstitedParent = entityManager.find(ParentUniOne.class, parent.getId());
+        final Iterator<ChildUniMany> iterator = perstitedParent.getChildren().iterator();
+        iterator.next();
+        iterator.remove();
         entityManager.getTransaction().commit();
     }
 

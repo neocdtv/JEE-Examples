@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/org/eclipse/persistence/internal/helper/ConversionManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../USP_PLUS/USPPlus/Source/ofco/ofco-application/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../USP_PLUS/USPPlus/Source/ofco/ofco-application/src/main/java/com/bmw/ofco/business/offer/entity/Offer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../USP_PLUS/USPPlus/Source/ofco/ofco-application/src/main/java/com/bmw/ofco/entity/base/JPAEclipseLinkSessionCustomizer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../USP_PLUS/USPPlus/Source/ofco/ofco-application/src/test/java/com/bmw/ofco/common/util/OraclePlatformFixedTerminationStatement.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../USP_PLUS/USPPlus/Source/ofco/ofco-db/src/main/resources/database/schema/V1_0__create.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../USP_PLUS/USPPlus/Source/ofco/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
+

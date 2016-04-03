@@ -28,7 +28,8 @@ public class ServerInterceptor implements ReaderInterceptor, WriterInterceptor{
     @Override
     public Object aroundReadFrom(ReaderInterceptorContext readerContext) throws IOException, WebApplicationException {
         logger.info("* server response interceptor");
-        return readerContext.proceed();
+        final Object proceed = readerContext.proceed();
+        return proceed;
     }
 
     @Override

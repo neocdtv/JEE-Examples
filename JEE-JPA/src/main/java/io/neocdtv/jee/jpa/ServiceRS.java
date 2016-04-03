@@ -79,9 +79,9 @@ public class ServiceRS {
         final EntityGraph<ParentBiOne> entityGraph = new PathsToEntityGraphConverter().toGraph((EntityGraphImpl) em.createEntityGraph(ParentBiOne.class), paths);
         
         final ParentBiOne parent = service.readPartial(id, entityGraph);       
-        final ParentBiOne newParent = new CopyPartialEntities().copy(parent, (EntityGraphImpl) entityGraph);
+        //final ParentBiOne newParent = new CopyPartialEntities().copy(parent, (EntityGraphImpl) entityGraph);
         
-        return Response.ok(newParent).build();
+        return Response.ok(parent).build();
     }
 
     @GET

@@ -7,11 +7,14 @@ package io.neocdtv.jee.jpa.entity.onetomany.bi;
 
 import io.neocdtv.jee.jpa.entity.AbstractEntity;
 import static io.neocdtv.jee.jpa.entity.AbstractEntity.FIELD_NAME_VERSION;
+import io.neocdtv.jee.jpa.entity.EnumClass;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -55,7 +58,8 @@ public class ParentBiOne extends AbstractEntity {
     private String attributeOne;
     
     @Column
-    private String attributeTwo;
+    @Enumerated(EnumType.STRING)
+    private EnumClass attributeTwo;
     
     @Column
     private String attributeThree;
@@ -91,14 +95,14 @@ public class ParentBiOne extends AbstractEntity {
         this.attributeOne = attributeOne;
     }
 
-    public String getAttributeTwo() {
+    public EnumClass getAttributeTwo() {
         return attributeTwo;
     }
 
-    public void setAttributeTwo(String attributeTwo) {
+    public void setAttributeTwo(EnumClass attributeTwo) {
         this.attributeTwo = attributeTwo;
     }
-
+    
     public String getAttributeThree() {
         return attributeThree;
     }

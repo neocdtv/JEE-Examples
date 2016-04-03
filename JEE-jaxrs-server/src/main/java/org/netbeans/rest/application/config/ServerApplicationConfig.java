@@ -5,11 +5,9 @@
  */
 package org.netbeans.rest.application.config;
 
-import io.neocdtv.jarxrs.server.Server;
-import io.neocdtv.jarxrs.server.ServerInterceptor;
-import io.neocdtv.jarxrs.server.ServerTrafficFilter;
 import java.util.Set;
 import javax.ws.rs.core.Application;
+import org.glassfish.jersey.jackson.JacksonFeature;
 
 /**
  *
@@ -17,10 +15,11 @@ import javax.ws.rs.core.Application;
  */
 @javax.ws.rs.ApplicationPath("rs")
 public class ServerApplicationConfig extends Application {
-
+    
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new java.util.HashSet<>();
+        resources.add(JacksonFeature.class);
         addRestResourceClasses(resources);
         return resources;
     }
@@ -32,8 +31,12 @@ public class ServerApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(io.neocdtv.jarxrs.server.JsonSchemaMessageBodyReader.class);
+        resources.add(io.neocdtv.jarxrs.server.ObjectContextResolver.class);
         resources.add(io.neocdtv.jarxrs.server.Server.class);
-        resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
+        resources.add(io.neocdtv.jarxrs.server.ServerExceptionMapper.class);
+        resources.add(io.neocdtv.jarxrs.server.ServerTrafficFilter.class);
+        resources.add(io.neocdtv.jarxrs.server.UnknownPropertiesHandler.class);
     }
     
 }

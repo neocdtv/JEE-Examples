@@ -64,7 +64,7 @@ public class ParentUniOne extends AbstractEntity {
     @Column
     private Integer attributeFour;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "PARENT_ID", nullable = true)
     private Set<ChildUniMany> children;
     
