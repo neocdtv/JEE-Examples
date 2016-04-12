@@ -44,7 +44,7 @@ import javax.ws.rs.ext.Provider;
 @ApplicationScoped
 @Provider
 @Consumes(MediaType.APPLICATION_JSON)
-public class JsonSchemaMessageBodyReader extends JacksonJsonProvider {
+public class ValidationJsonSchemaMessageBodyReader extends JacksonJsonProvider {
 
     private String jsonSchemaFileAsString;
 
@@ -72,13 +72,13 @@ public class JsonSchemaMessageBodyReader extends JacksonJsonProvider {
         try {
             validateJsonData(jsonSchemaFileAsString, jsonData);
         } catch (ProcessingException ex) {
-            Logger.getLogger(JsonSchemaMessageBodyReader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ValidationJsonSchemaMessageBodyReader.class.getName()).log(Level.SEVERE, null, ex);
         }
         Object addr = null;
         try {
             addr = mapper.readValue(stringToStream(jsonData), PojoFirst.class);
         } catch (JsonMappingException e) {
-          Logger.getLogger(JsonSchemaMessageBodyReader.class.getName()).log(Level.SEVERE, null, e);
+          Logger.getLogger(ValidationJsonSchemaMessageBodyReader.class.getName()).log(Level.SEVERE, null, e);
         }
 
         return addr;

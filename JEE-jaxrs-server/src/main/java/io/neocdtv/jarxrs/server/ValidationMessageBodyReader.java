@@ -5,50 +5,41 @@
  */
 package io.neocdtv.jarxrs.server;
 
-import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
-import java.util.List;
-import javax.annotation.PostConstruct;
+import java.util.Arrays;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.ext.MessageBodyReader;
+import javax.ws.rs.ext.Provider;
 
 /**
  *
  * @author xix
  */
 @ApplicationScoped
+//@Provider
+@Consumes({MediaType.APPLICATION_JSON})
+public class ValidationMessageBodyReader implements MessageBodyReader<Object> {
 
-//@Consumes(MediaType.APPLICATION_JSON)
-public class UnknownPropertiesMessageBodyReader extends JacksonJsonProvider {
-    
+    @Inject
+    private ValidationService validationService;
+
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        
-        return super.isReadable(type, genericType, annotations, mediaType);
+        return true;
     }
 
     @Override
     public Object readFrom(Class<Object> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, String> httpHeaders, InputStream entityStream) throws IOException, WebApplicationException {
         final Object entity = ServerObjectMapper.INSTANCE.readValue(entityStream, type);
+        validationService.validate(Arrays.asList(entity));
         return entity;
-    }
-
-    public ValidationException build(Class<Object> type, List<String> unknownEntityProperties) {
-        final ValidationException exception = new ValidationException();
-        for (String propertyName : unknownEntityProperties) {
-            final ValidationConflict validationConflict = new ValidationConflict();
-            validationConflict.setReason("UNKNOWN_PROPERTY");
-            validationConflict.setRoot(type.getSimpleName());
-            validationConflict.setSource(propertyName);
-            validationConflict.setMessage("Unknown property");
-            exception.addValidationConflict(validationConflict);
-        }
-        return exception;
     }
 }

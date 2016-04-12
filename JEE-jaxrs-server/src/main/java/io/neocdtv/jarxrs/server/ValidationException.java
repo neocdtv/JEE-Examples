@@ -7,7 +7,6 @@ package io.neocdtv.jarxrs.server;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.ws.rs.WebApplicationException;
 
 /**
  *
