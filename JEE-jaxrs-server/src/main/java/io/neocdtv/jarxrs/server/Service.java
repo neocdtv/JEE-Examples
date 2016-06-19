@@ -9,19 +9,26 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.jsonSchema.JsonSchema;
 import com.fasterxml.jackson.module.jsonSchema.customProperties.ValidationSchemaFactoryWrapper;
+import com.sun.codemodel.JCodeModel;
 import io.neocdtv.datamodel.Object1;
+import java.io.File;
 import java.io.IOException;
-import javax.json.JsonObject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.jsonschema2pojo.DefaultGenerationConfig;
 import org.jsonschema2pojo.GenerationConfig;
+import org.jsonschema2pojo.Jackson2Annotator;
+import org.jsonschema2pojo.SchemaGenerator;
+import org.jsonschema2pojo.SchemaMapper;
+import org.jsonschema2pojo.SchemaStore;
+import org.jsonschema2pojo.rules.RuleFactory;
 
 /**
  *
@@ -30,10 +37,10 @@ import org.jsonschema2pojo.GenerationConfig;
 @Path("server")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class Server {
+public class Service {
     
-    @Context
-    
+    @PersistenceContext
+    private EntityManager manager;
 
     @GET
     @Path("schema-jackson")
@@ -42,7 +49,6 @@ public class Server {
         ObjectMapper mapper = ServerObjectMapper.INSTANCE;
         mapper.acceptJsonFormatVisitor(Object1.class, visitor);
         JsonSchema jsonSchema = visitor.finalSchema();
-
         return Response.ok(jsonSchema.asContainerTypeSchema()).build();
     }
 
@@ -62,15 +68,14 @@ public class Server {
             }
 
         };
-/*
          JCodeModel codeModel = new JCodeModel();
         
          SchemaGenerator schemaGenerator = new SchemaGenerator();
          SchemaMapper mapper = new SchemaMapper(new RuleFactory(config, new Jackson2Annotator(), new SchemaStore()), schemaGenerator);
         
          mapper.generate(codeModel, "Object1", "io.neocdtv.datamodel", "null");
-         codeModel.build(new File("output"));
-*/
+         codeModel.build(new File("/home/xix/Desktop/output.txt"));
+         
          return null;
     }
 
