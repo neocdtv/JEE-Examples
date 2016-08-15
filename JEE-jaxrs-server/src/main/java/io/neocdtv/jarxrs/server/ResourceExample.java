@@ -13,10 +13,15 @@ import com.fasterxml.jackson.module.jsonSchema.JsonSchema;
 import com.fasterxml.jackson.module.jsonSchema.customProperties.ValidationSchemaFactoryWrapper;
 import com.sun.codemodel.JCodeModel;
 import io.neocdtv.datamodel.Object1;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Authorization;
+import io.swagger.annotations.AuthorizationScope;
 import java.io.File;
 import java.io.IOException;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -36,7 +41,9 @@ import org.jsonschema2pojo.rules.RuleFactory;
  *
  * @author xix
  */
-@Path("example")
+
+@Api(value = "/validation")
+@Path("validation")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ResourceExample {
@@ -45,7 +52,6 @@ public class ResourceExample {
   @Path("schema-jackson")
   public Response generateSchemaJackson() throws JsonMappingException, IOException {
     ObjectMapper mapper = new ObjectMapper();
-    //There are other configuration options you can set.  This is the one I needed.
     mapper.configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true);
 
     final com.fasterxml.jackson.databind.jsonschema.JsonSchema generateJsonSchema = mapper.generateJsonSchema(Object1.class);
@@ -98,8 +104,12 @@ public class ResourceExample {
    *   start 5 requests and the sixt should block und one thread from the thread pool is available again.
    *       configurations -> server config -> thread poools -> http-thread-pool
    */
+  
+  @ApiOperation(value = "Find purchase order by ID",
+          notes = "For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions",
+          response = PojoFirst.class)
   @POST
-  public Response post(final PojoFirst filterObject) throws InterruptedException {
+  public Response post(@ApiParam(required = true) final PojoFirst filterObject) throws InterruptedException {
     return Response.ok(filterObject).build();
   }
 }

@@ -36,7 +36,7 @@ public class ServerTrafficFilter implements ContainerRequestFilter, ContainerRes
     private static final String REQUEST_PREFIX = "-> ";
     private static final String RESPONSE_PREFIX = "<- ";
 
-    private static final Logger logger = Logger.getLogger(ServerTrafficFilter.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ServerTrafficFilter.class.getName());
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
@@ -81,8 +81,8 @@ public class ServerTrafficFilter implements ContainerRequestFilter, ContainerRes
     }
 
     private void logRequestLine(final ContainerRequestContext request) {
-        logger.log(Level.INFO, String.format("%s%sServer request", REQUEST_PREFIX, NOTIFICATION_PREFIX));
-        logger.log(Level.INFO, String.format("%s%s %s", REQUEST_PREFIX, request.getMethod(),
+        LOGGER.log(Level.INFO, String.format("%s%sServer request", REQUEST_PREFIX, NOTIFICATION_PREFIX));
+        LOGGER.log(Level.INFO, String.format("%s%s %s", REQUEST_PREFIX, request.getMethod(),
                 request.getUriInfo().getAbsolutePath().toString()));
     }
 
@@ -90,30 +90,30 @@ public class ServerTrafficFilter implements ContainerRequestFilter, ContainerRes
         for (Map.Entry<String, List<String>> e : headers.entrySet()) {
             final String header = e.getKey();
             for (String value : e.getValue()) {
-                logger.log(Level.INFO, String.format("%s%s: %s", REQUEST_PREFIX, header, value));
+                LOGGER.log(Level.INFO, String.format("%s%s: %s", REQUEST_PREFIX, header, value));
             }
         }
     }
 
     private void logResponseLine(final ContainerResponseContext response) {
-        logger.log(Level.INFO, String.format("%s%sServer response", RESPONSE_PREFIX, NOTIFICATION_PREFIX));
-        logger.log(Level.INFO, String.format("%sStatus %s", RESPONSE_PREFIX, response.getStatus()));
+        LOGGER.log(Level.INFO, String.format("%s%sServer response", RESPONSE_PREFIX, NOTIFICATION_PREFIX));
+        LOGGER.log(Level.INFO, String.format("%sStatus %s", RESPONSE_PREFIX, response.getStatus()));
     }
 
     private void logResponseHeaders(final MultivaluedMap<String, String> headers) {
         for (Map.Entry<String, List<String>> e : headers.entrySet()) {
             final String header = e.getKey();
             for (Object value : e.getValue()) {
-                logger.log(Level.INFO, String.format("%s%s: %s", RESPONSE_PREFIX, header, value));
+                LOGGER.log(Level.INFO, String.format("%s%s: %s", RESPONSE_PREFIX, header, value));
             }
         }
     }
 
     private void logRequestEntity(final ContainerRequestContext requestContext) {
-        logger.log(Level.INFO, String.format("%sEntity: %s", REQUEST_PREFIX, getEntity(requestContext)));
+        LOGGER.log(Level.INFO, String.format("%sEntity: %s", REQUEST_PREFIX, getEntity(requestContext)));
     }
 
     private void logResponseEntity(final ContainerResponseContext response) throws JsonProcessingException {
-        logger.log(Level.INFO, String.format("%sEntity: %s", RESPONSE_PREFIX, ServerObjectMapper.INSTANCE.writeValueAsString(response.getEntity())));
+        LOGGER.log(Level.INFO, String.format("%sEntity: %s", RESPONSE_PREFIX, ServerObjectMapper.INSTANCE.writeValueAsString(response.getEntity())));
     }
 }

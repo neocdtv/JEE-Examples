@@ -75,7 +75,7 @@ public class ValidationJsonSchemaMessageBodyReader extends JacksonJsonProvider {
     }
     Object addr = null;
     try {
-      addr = mapper.readValue(entityStream, type);
+      addr = mapper.readValue(jsonData, type);
     } catch (JsonMappingException e) {
       Logger.getLogger(ValidationJsonSchemaMessageBodyReader.class.getName()).log(Level.SEVERE, null, e);
     }

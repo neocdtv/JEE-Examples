@@ -1,0 +1,98 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a sample for swagger-maven-plugin",
+    "version" : "v1",
+    "title" : "Swagger Maven Plugin Sample"
+  },
+  "host" : "localhost:9380",
+  "basePath" : "/JEE-jaxrs-server/rs",
+  "tags" : [ {
+    "name" : "validation"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/validation" : {
+      "post" : {
+        "tags" : [ "validation" ],
+        "summary" : "Find purchase order by ID",
+        "description" : "For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions",
+        "operationId" : "post",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PojoFirst"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/PojoFirst"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "PojoFirst" : {
+      "type" : "object",
+      "required" : [ "firstName" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string",
+          "pattern" : "[0-9]{12}"
+        },
+        "lastName" : {
+          "type" : "string",
+          "minLength" : 10,
+          "maxLength" : 12
+        },
+        "pojoSecond" : {
+          "$ref" : "#/definitions/PojoSecond"
+        },
+        "firstEnum" : {
+          "type" : "string",
+          "enum" : [ "One", "Two" ]
+        },
+        "secondEnum" : {
+          "type" : "string",
+          "enum" : [ "Three", "Four" ]
+        },
+        "age" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 2.0,
+          "maximum" : 8.0
+        },
+        "liste" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 12,
+          "minItems" : 10
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "PojoSecond" : {
+      "type" : "object",
+      "properties" : {
+        "thirdName" : {
+          "type" : "string",
+          "minLength" : 10,
+          "maxLength" : 12
+        }
+      }
+    }
+  }
+}

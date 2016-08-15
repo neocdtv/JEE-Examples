@@ -6,6 +6,7 @@
 package io.neocdtv.jarxrs.server.model;
 
 import io.neocdtv.jarxrs.server.model.FirstEnum;
+import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -33,6 +34,8 @@ public class PojoFirst {
   private Integer age;
   @Size(min = 10, max = 12)
   private List<String> liste;
+  
+  private Date date;
 
   public String getFirstName() {
     return firstName;
@@ -88,5 +91,13 @@ public class PojoFirst {
 
   public void setListe(List<String> liste) {
     this.liste = liste;
+  }
+
+  public Date getDate() {
+    return date;
+  }
+
+  public void setDate(Date date) {
+    this.date = date;
   }
 }
