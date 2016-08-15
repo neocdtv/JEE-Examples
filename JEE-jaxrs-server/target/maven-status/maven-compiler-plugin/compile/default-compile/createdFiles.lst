@@ -9,6 +9,7 @@ io/neocdtv/jarxrs/server/ValidationJsonSchemaMessageBodyReader.class
 io/neocdtv/jarxrs/server/MyStringUtils.class
 io/neocdtv/jarxrs/server/ValidationException.class
 io/neocdtv/jarxrs/server/ObjectContextResolver.class
+io/neocdtv/jarxrs/server/JsonSchameValidation.class
 io/neocdtv/jarxrs/server/ServerExceptionMapper.class
 io/neocdtv/jarxrs/server/ServerInterceptor.class
 io/neocdtv/jarxrs/server/ValidationService.class

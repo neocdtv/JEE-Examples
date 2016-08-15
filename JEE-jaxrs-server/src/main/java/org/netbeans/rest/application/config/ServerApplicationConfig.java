@@ -32,11 +32,11 @@ public class ServerApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(io.neocdtv.jarxrs.server.ObjectContextResolver.class);
+        resources.add(io.neocdtv.jarxrs.server.ResourceExample.class);
         resources.add(io.neocdtv.jarxrs.server.ServerExceptionMapper.class);
         resources.add(io.neocdtv.jarxrs.server.ServerTrafficFilter.class);
-        resources.add(io.neocdtv.jarxrs.server.Service.class);
         resources.add(io.neocdtv.jarxrs.server.UnknownPropertiesHandler.class);
-        resources.add(io.neocdtv.jarxrs.server.ValidationJsonSchemaMessageBodyReader.class);
+        resources.add(io.neocdtv.jarxrs.server.validation.ValidationJsonSchemaMessageBodyReader.class);
     }
     
 }

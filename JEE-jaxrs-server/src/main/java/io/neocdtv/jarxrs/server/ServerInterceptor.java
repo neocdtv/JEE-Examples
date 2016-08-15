@@ -23,18 +23,18 @@ import javax.ws.rs.ext.WriterInterceptorContext;
  */
 public class ServerInterceptor implements ReaderInterceptor, WriterInterceptor{
 
-    private static final Logger logger = Logger.getLogger(ServerInterceptor.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ServerInterceptor.class.getName());
     
     @Override
     public Object aroundReadFrom(ReaderInterceptorContext readerContext) throws IOException, WebApplicationException {
-        logger.info("* server response interceptor");
+        LOGGER.info("COMPONENT-ORDER - ServerInterceptor.ENTER");
         final Object proceed = readerContext.proceed();
         return proceed;
     }
 
     @Override
     public void aroundWriteTo(WriterInterceptorContext writerContext) throws IOException, WebApplicationException {
-        logger.info("* server request interceptor");
+        LOGGER.info("COMPONENT-ORDER ServerInterceptor.EXIT");
         writerContext.proceed();
     }
 }

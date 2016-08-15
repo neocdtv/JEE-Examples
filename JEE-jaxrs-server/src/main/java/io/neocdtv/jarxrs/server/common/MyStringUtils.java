@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.neocdtv.jarxrs.server;
+package io.neocdtv.jarxrs.server.common;
 
 import java.util.Collection;
 import org.apache.commons.lang.StringUtils;

@@ -8,6 +8,7 @@
 /home/xix/Projects/JEE-Examples/JEE-jaxrs-server/src/main/java/io/neocdtv/jarxrs/server/ValidationConflict.java
 /home/xix/Projects/JEE-Examples/JEE-jaxrs-server/src/main/java/io/neocdtv/jarxrs/server/ServerObjectMapper.java
 /home/xix/Projects/JEE-Examples/JEE-jaxrs-server/src/main/java/io/neocdtv/jarxrs/server/ServerExceptionMapper.java
+/home/xix/Projects/JEE-Examples/JEE-jaxrs-server/src/main/java/io/neocdtv/jarxrs/server/JsonSchameValidation.java
 /home/xix/Projects/JEE-Examples/JEE-jaxrs-server/src/main/java/io/neocdtv/jarxrs/server/Service.java
 /home/xix/Projects/JEE-Examples/JEE-jaxrs-server/src/main/java/io/neocdtv/jarxrs/server/ServerInterceptor.java
 /home/xix/Projects/JEE-Examples/JEE-jaxrs-server/src/main/java/io/neocdtv/jarxrs/server/ValidationException.java
