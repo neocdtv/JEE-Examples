@@ -7,6 +7,7 @@ package io.neocdtv.jarxrs.server;
 
 import java.util.logging.Logger;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 /**
@@ -14,15 +15,14 @@ import javax.ws.rs.ext.Provider;
  * @author xix
  */
 @Provider
-public class ServerExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwable> {
+public class ExceptionMapperForThrowable implements ExceptionMapper<Throwable> {
 
-  private static final Logger LOGGER = Logger.getLogger(ServerExceptionMapper.class.getName());
+  private static final Logger LOGGER = Logger.getLogger(ExceptionMapperForThrowable.class.getName());
 
   @Override
   public Response toResponse(final Throwable throwable) {
     if (throwable instanceof io.neocdtv.jarxrs.server.validation.ValidationException) {
       io.neocdtv.jarxrs.server.validation.ValidationException validationExcp = (io.neocdtv.jarxrs.server.validation.ValidationException) throwable;
-
       if (validationExcp.hasConflicts()) {
         return Response.status(Response.Status.BAD_REQUEST).entity(validationExcp.getValidationConflicts()).build();
       } else {

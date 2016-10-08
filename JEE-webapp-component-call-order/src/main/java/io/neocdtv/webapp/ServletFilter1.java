@@ -6,9 +6,6 @@ package io.neocdtv.webapp;
  * and open the template in the editor.
  */
 import java.io.IOException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.logging.Logger;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -21,22 +18,22 @@ import javax.servlet.ServletResponse;
  *
  * @author xix
  */
-public class ServletFilter implements Filter {
+public class ServletFilter1 implements Filter {
 
-  private static final Logger LOGGER = Logger.getLogger(ServletFilter.class.getName());
+  private static final Logger LOGGER = Logger.getLogger(ServletFilter1.class.getName());
   private FilterConfig filterConfig = null;
 
-  public ServletFilter() {
+  public ServletFilter1() {
   }
 
-  private void doBeforeProcessing(ServletRequest request, ServletResponse response)
+  private void filterRequest(ServletRequest request)
           throws IOException, ServletException {
-    LOGGER.info("ServletFilter.doBeforeProcessing");
+    LOGGER.info("ServletFilter1.filterRequest");
   }
 
-  private void doAfterProcessing(ServletRequest request, ServletResponse response)
+  private void filterResponse(ServletResponse response)
           throws IOException, ServletException {
-    LOGGER.info("ServletFilter.doAfterProcessing");
+    LOGGER.info("ServletFilter1.filterResponse");
   }
 
   @Override
@@ -44,11 +41,15 @@ public class ServletFilter implements Filter {
           FilterChain chain)
           throws IOException, ServletException {
 
-    LOGGER.info("ServletFilter.doFilter");
-    doBeforeProcessing(request, response);
-    chain.doFilter(request, response);
-    doAfterProcessing(request, response);
+    filterRequest(request);
+    executeNextFilter(chain, request, response);
+    filterResponse(response);
 
+  }
+
+  private void executeNextFilter(FilterChain chain, ServletRequest request, ServletResponse response) throws IOException, ServletException {
+    LOGGER.info("ServletFilter1.executeNextFilter");
+    chain.doFilter(request, response);
   }
 
   public FilterConfig getFilterConfig() {

@@ -5,7 +5,6 @@
  */
 package io.neocdtv.jarxrs.server.validation;
 
-import io.neocdtv.jarxrs.server.common.MyStringUtils;
 import java.lang.annotation.Annotation;
 import javax.enterprise.context.ApplicationScoped;
 import javax.validation.ConstraintViolation;
@@ -46,6 +45,6 @@ public class ValidationMapper {
     private String getReason(final ConstraintViolation<Object> constraintViolation) {
         final Class<? extends Annotation> annotationType = constraintViolation.getConstraintDescriptor().getAnnotation().annotationType();
         final String annotationSimpleName = annotationType != null ? annotationType.getSimpleName() : "";
-        return MyStringUtils.camelCaseToUpperCase(annotationSimpleName);
+        return annotationSimpleName;
     }
 }

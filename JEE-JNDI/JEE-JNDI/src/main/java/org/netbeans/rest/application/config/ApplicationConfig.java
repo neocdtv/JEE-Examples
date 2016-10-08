@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author xix
  */
-@javax.ws.rs.ApplicationPath("rs")
+@javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
 
   @Override
@@ -29,14 +29,7 @@ public class ApplicationConfig extends Application {
    * If required, comment out calling this method in getClasses().
    */
   private void addRestResourceClasses(Set<Class<?>> resources) {
-    resources.add(io.neocdtv.webapp.JaxRsExceptionMapper.class);
-    resources.add(io.neocdtv.webapp.JaxRsFilter1.class);
-    resources.add(io.neocdtv.webapp.JaxRsFilter2.class);
-    resources.add(io.neocdtv.webapp.JaxRsInterceptor1.class);
-    resources.add(io.neocdtv.webapp.JaxRsInterceptor2.class);
-    resources.add(io.neocdtv.webapp.JaxRsMessageBodyReader.class);
-    resources.add(io.neocdtv.webapp.JaxRsMessageBodyWriter.class);
-    resources.add(io.neocdtv.webapp.Resource.class);
+    resources.add(io.neocdtv.jee.jndi.RestResource.class);
   }
   
 }

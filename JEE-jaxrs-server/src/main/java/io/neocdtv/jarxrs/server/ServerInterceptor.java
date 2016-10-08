@@ -27,14 +27,12 @@ public class ServerInterceptor implements ReaderInterceptor, WriterInterceptor{
     
     @Override
     public Object aroundReadFrom(ReaderInterceptorContext readerContext) throws IOException, WebApplicationException {
-        LOGGER.info("COMPONENT-ORDER - ServerInterceptor.ENTER");
         final Object proceed = readerContext.proceed();
         return proceed;
     }
 
     @Override
     public void aroundWriteTo(WriterInterceptorContext writerContext) throws IOException, WebApplicationException {
-        LOGGER.info("COMPONENT-ORDER ServerInterceptor.EXIT");
         writerContext.proceed();
     }
 }
