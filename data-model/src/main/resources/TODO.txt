@@ -1,0 +1,7 @@
+Add many to many relation
+Add many to one relation
+
+
+?Exception Description: [class io.neocdtv.domain.Offer] uses a non-entity [class io.neocdtv.domain.customer.ICustomer] 
+as target entity in the relationship attribute [field owner].
+

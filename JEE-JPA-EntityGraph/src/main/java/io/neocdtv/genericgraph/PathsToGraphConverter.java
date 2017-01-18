@@ -5,8 +5,6 @@
  */
 package io.neocdtv.genericgraph;
 
-import io.neocdtv.genericgraph.Complex;
-import io.neocdtv.genericgraph.Simple;
 import java.util.Arrays;
 import java.util.HashSet;
 

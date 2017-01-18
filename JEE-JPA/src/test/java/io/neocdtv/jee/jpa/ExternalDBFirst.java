@@ -5,43 +5,46 @@
  */
 package io.neocdtv.jee.jpa;
 
-import io.neocdtv.jee.jpa.entity.onetomany.uni.ChildUniMany;
-import io.neocdtv.jee.jpa.entity.onetomany.uni.ParentUniOne;
-import java.util.Iterator;
+import io.neocdtv.domain.customer.Address;
+import io.neocdtv.domain.customer.Country;
+import io.neocdtv.domain.customer.Customer;
+import io.neocdtv.domain.customer.Person;
 import javax.persistence.EntityManager;
 import org.junit.Test;
 
-
 public class ExternalDBFirst extends ExternalDBTest {
 
-    @Override
-    public void setUp() {
+  @Override
+  public void setUp() {
 
-    }
-    
-    @Test
-    public void test() {
-        final ParentUniOne parent = createParent();
-        final EntityManager entityManager = getEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(parent);
-        entityManager.getTransaction().commit();
-        
-        entityManager.getTransaction().begin();
-        final ParentUniOne perstitedParent = entityManager.find(ParentUniOne.class, parent.getId());
-        final Iterator<ChildUniMany> iterator = perstitedParent.getChildren().iterator();
-        iterator.next();
-        iterator.remove();
-        entityManager.getTransaction().commit();
-    }
+  }
 
-    private ParentUniOne createParent() {
-        final ParentUniOne parentUniOne = new ParentUniOne();
-        final ChildUniMany first = new ChildUniMany();
-        final ChildUniMany second = new ChildUniMany();
-        parentUniOne.addChild(second);
-        parentUniOne.addChild(first);
-        return parentUniOne;
-    }
-    
+  @Test
+  public void test() {
+    final Customer parent = createPerson();
+    final EntityManager entityManager = getEntityManager();
+    entityManager.getTransaction().begin();
+    entityManager.persist(parent);
+    entityManager.getTransaction().commit();
+
+    entityManager.getTransaction().begin();
+    entityManager.getTransaction().commit();
+  }
+
+  private Customer createPerson() {
+    final Person person = new Person();
+    person.setFirstName("Krzysztof");
+    person.setLastName("Wolf");
+    person.setMainAddress(createAddress());
+    return person;
+  }
+  
+  private Address createAddress() {
+    final Address address = new Address();
+    address.setCity("Munich");
+    address.setCountry(Country.DE);
+    address.setHouseNumber(10);
+    address.setStreet("Gmunder Str.");
+    return address;
+  }
 }

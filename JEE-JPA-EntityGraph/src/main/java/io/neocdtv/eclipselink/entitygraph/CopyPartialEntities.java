@@ -15,7 +15,6 @@ import org.eclipse.persistence.internal.jpa.AttributeNodeImpl;
 import org.eclipse.persistence.internal.jpa.EntityGraphImpl;
 
 /**
- *
  * @author Krzysztof Wolf
  */
 public class CopyPartialEntities {
@@ -23,7 +22,19 @@ public class CopyPartialEntities {
     private static final String VERSION = "version";
     private static final String ID = "id";
     
-    public <T> T copy(final T copyFrom, final EntityGraphImpl<T> entityGraph) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+  /**
+   * Copies attributes from contained in entityGraph into new object.
+   * 
+   * @param <T>
+   * @param copyFrom
+   * @param entityGraph
+   * @return
+   * @throws InstantiationException
+   * @throws IllegalAccessException
+   * @throws InvocationTargetException
+   * @throws NoSuchMethodException
+   */
+  public <T> T copy(final T copyFrom, final EntityGraphImpl<T> entityGraph) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
         final T copyTo = (T)copyFrom.getClass().newInstance();
         copyRecursive(copyFrom, copyTo, entityGraph);
         return copyTo;

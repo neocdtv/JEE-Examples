@@ -5,33 +5,33 @@
  */
 package org.netbeans.rest.application.config;
 
-import java.util.Set;
-import javax.ws.rs.core.Application;
+import javax.ws.rs.Priorities;
 import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.message.filtering.EntityFilteringFeature;
+import org.glassfish.jersey.message.filtering.SelectableEntityFilteringFeature;
+import org.glassfish.jersey.server.ResourceConfig;
 
 /**
  *
  * @author xix
  */
 @javax.ws.rs.ApplicationPath("rs")
-public class ApplicationConfig extends Application {
+public class ApplicationConfig extends ResourceConfig {
 
-    @Override
-    public Set<Class<?>> getClasses() {
-        Set<Class<?>> resources = new java.util.HashSet<>();
-        resources.add(JacksonFeature.class);
-        addRestResourceClasses(resources);
-        return resources;
-    }
+  public ApplicationConfig() {
+    
+    // configure entity filtering
+    register(SelectableEntityFilteringFeature.class, Priorities.HEADER_DECORATOR);
+    property(SelectableEntityFilteringFeature.QUERY_PARAM_NAME, RequestParameter.QUERY_PARAM_ENTITY_FILTERING);
 
-    /**
-     * Do not modify addRestResourceClasses() method. It is automatically
-     * populated with all resources defined in the project. If required, comment
-     * out calling this method in getClasses().
-     */
-    private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(io.neocdtv.jee.jpa.JacksonProvider.class);
-        resources.add(io.neocdtv.jee.jpa.ServiceRS.class);
-    }
+    // enable jackson instead
+    register(JacksonFeature.class);
+    // configure jackson
+    //register(io.neocdtv.jee.jpa.JacksonProvider.class);
+    
+    register(io.neocdtv.jee.jpa.ServiceRS.class);
+    
+    
+  }
 
 }

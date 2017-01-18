@@ -2,7 +2,7 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="jpaPlay" transaction-type="JTA">
     <jta-data-source>jdbc/jpaPlay</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <jar-file>lib/data-model-0.6-SNAPSHOT.jar</jar-file>
     <properties>
       <!-- customize properties from persistence.xml at runtime -->
       <property name="eclipselink.session.customizer" value="io.neocdtv.jee.jpa.eclipselink.EclipseLinkSessionCustomizer"/>
@@ -12,12 +12,12 @@
       <property name="eclipselink.ddl-generation.output-mode" value="database"/>
       <property name="eclipselink.ddlgen-terminate-statements" value="true"/>
       <!-- use to customize the output folder default is e.g. 
-            $GLASSFISH_HOME/glassfish/domains/domain1/generated/ejb/JEE-JPA
-            -->
+      $GLASSFISH_HOME/glassfish/domains/domain1/generated/ejb/JEE-JPA
+      -->
       <!--
-            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
-            <property name="eclipselink.application-location" value="/home/xix/Desktop/JDBC" />
-            -->
+      <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+      <property name="eclipselink.application-location" value="/home/xix/Desktop/JDBC" />
+      -->
       <!-- logging -->
       <property name="eclipselink.logging.session" value="true"/>
       <property name="eclipselink.logging.query" value="true"/>

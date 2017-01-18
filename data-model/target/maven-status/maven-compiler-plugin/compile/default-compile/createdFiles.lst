@@ -1,4 +1,12 @@
-io/neocdtv/datamodel/Constants.class
-io/neocdtv/datamodel/Object3.class
-io/neocdtv/datamodel/Object1.class
-io/neocdtv/datamodel/Object2.class
+io/neocdtv/domain/AbstractEntity.class
+io/neocdtv/domain/customer/Address.class
+io/neocdtv/domain/customer/Country.class
+io/neocdtv/domain/customer/Person.class
+io/neocdtv/domain/Contract.class
+io/neocdtv/domain/customer/Organization.class
+io/neocdtv/domain/customer/Customer.class
+io/neocdtv/domain/Car.class
+io/neocdtv/domain/Offer.class
+io/neocdtv/domain/customer/Salutation.class
+io/neocdtv/domain/customer/ICustomer.class
+io/neocdtv/domain/Feature.class

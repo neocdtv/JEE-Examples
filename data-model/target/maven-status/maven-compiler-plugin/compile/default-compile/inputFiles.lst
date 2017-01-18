@@ -1,4 +1,12 @@
-/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/datamodel/Constants.java
-/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/datamodel/Object1.java
-/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/datamodel/Object3.java
-/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/datamodel/Object2.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/customer/Address.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/customer/Person.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/Feature.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/customer/Salutation.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/customer/Customer.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/customer/ICustomer.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/customer/Organization.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/AbstractEntity.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/Contract.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/Offer.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/Car.java
+/home/xix/Projects/JEE-Examples/data-model/src/main/java/io/neocdtv/domain/customer/Country.java

@@ -5,7 +5,6 @@
  */
 package io.neocdtv.headerparamtomap;
 
-import javax.persistence.EntityManager;
 import org.junit.Test;
 
 /**

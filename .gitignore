@@ -30,3 +30,8 @@
 /videoplayer/target/
 /JEE-webapp-component-call-order/target/
 /JEE-JNDI/JEE-JNDI/target/
+/JEE-servletfilter/target/
+/jdt-test/target/
+/JEE-JPA-EntityGraph/nbproject/
+/mDNSClientWithCling/target/
+/upnpServiceWithCling/target/
